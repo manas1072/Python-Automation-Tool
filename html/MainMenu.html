@@ -1,0 +1,242 @@
+<html>
+
+<head>
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="mainmenu.css">
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap");
+
+:root {
+  /*  Sea Green */
+  --left-color: rgba(0, 0, 70, 0.6);
+  /*  Light Blue  */
+  --right-color: rgba(28, 181, 224, 0.6);
+}
+
+body {
+    font-family: karla, sans-serif, Impact, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 1.5px;
+  /* background-image: url("https://cdn.pixabay.com/photo/2014/12/15/15/36/cloth-569222_1280.jpg"); */
+  color: rgba(72, 177, 191, 0.88);
+  background-color: rgb(235, 235, 235);
+  margin: 0px;
+  padding: 0px;
+  font-size: max(50px, 3vw);
+}
+
+header {
+    text-align: center;
+    width: 100vw;
+    height: max(100px, 1vw);
+    background-color: rgba(0, 153, 177, 0.88);
+    color: white;
+    display: flex;
+    margin-bottom: max(70px, 2vw);
+    box-shadow: 2px 5px 20px rgba(39, 35, 33, 0.4);
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+header > div {
+    margin: auto;
+}
+
+.container {
+  margin-left: auto; 
+  margin-right: auto;
+  padding: 2vw;
+  border-radius: 2vw;
+  box-shadow: 2px 5px 20px rgba(22, 20, 19, 0.4);
+  background-color: rgba(255, 255, 255, 0.88);
+  width: 75%;
+  transition: all ease 200ms;
+  margin-bottom: 100px;
+  color: rgb(0, 0, 0);
+
+}
+
+.link-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wrapper {
+  position: relative;
+  perspective: 40em;
+  display: grid;
+  transform-style: preserve-3d;
+}
+
+.card {
+  grid-area: 1 / 1;
+  height: 200px;
+  width: 400px;
+  transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+  background-color: rgba(72, 177, 191, 0.88);
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 900;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 30px -3px rgba(0, 0, 0, 0.1);
+  
+}
+
+.container > h1 {
+    font-weight: 900;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 58px;
+  margin-top:5px;
+}
+
+li + li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card .enclosed {
+  background: #fff;
+  line-height: 1;
+  color: rgba(72, 177, 191, 1);
+  padding: 0 5px;
+  display: inline-block;
+  transform: translate(-1px, 1px) scale(0.75);
+  transform-origin: right center;
+}
+
+.wrapper:before {
+  --bw: 9px;
+  grid-area: 1 / 1;
+  content: "";
+  backface-visibility: hidden;
+  height: 100%;
+  width: 100%;
+  margin-top: calc(-1 * var(--bw));
+  margin-left: calc(-1 * var(--bw));
+  background: transparent;
+  transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+  pointer-events: none;
+  border: var(--bw) solid rgb(253, 251, 251);
+  box-sizing: content-box;
+}
+
+.wrapper:hover > div,
+.wrapper:hover:before {
+  transform: none;
+}
+
+.wrapper > div,
+.wrapper:before {
+  will-change: transform;
+  transition: 0.4s;
+}
+
+.wrapper {
+  float: left;
+  margin: 48px;
+}
+
+.pre {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 20px;
+  width: 80%;
+  color: rgb(0, 0, 0);
+  margin-top: 40px;
+}
+
+center {
+    padding: 1vw;
+}
+
+@media only screen and (max-width: 1000px) {
+    .pre {
+        font-size: 50px; 
+        text-align: center;
+    }
+
+    header {
+        height:170px;
+        font-size: 8vw;
+        margin-bottom: 150px;
+    }
+
+    .overlay {
+        padding: 10px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .card {
+        height: 200px;
+        width: 800px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <header>
+            <div>Main Menu</div>
+        </header>
+        <center>
+            <div class="container">
+                <h1>Pre-Requites</h1>
+                <div class="pre">
+                    <ol>
+                        <li>Give apache user sudo powers</li>
+                        <li>Stop SElinux and Firewalld(In case server is AWS Instance, then allow All Traffic)</li>
+                        <li>Make sure to configure AWS CLI by "aws configure" command</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="link-wrapper">
+                <a href="http://54.242.199.80/linux.html">
+                    <div class="wrapper" >
+                        <div class="card">
+                            <h1>
+                                <span class="enclosed">Linux</span>Commands
+                            </h1>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="http://54.242.199.80/aws.html">
+                    <div class="wrapper">
+                        <div class="card">
+                            <h1>
+                                <span class="enclosed">Amazon Web</span> Services
+                            </h1>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://54.242.199.80/docker.html">
+                    <div class="wrapper">
+                        <div class="card">
+                            <h1>
+                                <span class="enclosed">Docker</span>Commands
+                            </h1>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </center>
+    </div>
+</body>
+
+</html>
